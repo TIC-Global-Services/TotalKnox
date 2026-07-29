@@ -22,7 +22,7 @@ export default function Origin() {
         </div>
         <TextReveal
           text="TotalKnox is built on protection, performance, and reliability, gear designed to hold up across every level of activity and environment."
-          className="font-display text-2xl uppercase leading-tight tracking-tight md:text-6xl mx-auto max-w-5xl text-black/10"
+          className="font-display text-2xl uppercase leading-[1] tracking-tight md:text-6xl mx-auto max-w-5xl text-black/10"
         />
       </div>
     </section>

@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
-import { useParallax } from "@/hooks/useParallax";
 import { useScrambleText } from "@/hooks/useScrambleText";
 
 function Panel({
@@ -20,29 +19,25 @@ function Panel({
   alt: string;
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imageWrapRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
-  useReveal(sectionRef, { selector: "[data-reveal]", stagger: 0.15 });
-  useParallax(imageWrapRef, { yPercent: -12 });
+  useReveal(sectionRef, { selector: "[data-reveal]" });
   useScrambleText(headingRef, { delay: 0.2 });
 
   return (
     <div
       ref={sectionRef}
-      className="group relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden text-white md:aspect-auto md:min-h-[600px]"
+      className="group relative aspect-[4/5] w-full overflow-hidden text-white md:aspect-auto md:min-h-[600px]"
     >
-      <div ref={imageWrapRef} className="absolute inset-0 w-full h-full">
-        <Image
-          src={image}
-          alt={alt}
-          fill
-          sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover transition duration-700 group-hover:scale-105"
-        />
-      </div>
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        sizes="(min-width: 768px) 50vw, 100vw"
+        className="object-cover transition duration-700 group-hover:scale-105"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
-      <div className="relative z-10 flex h-full flex-col items-center px-6 text-center py-10">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-between px-6 text-center py-10">
         <span
           data-reveal
           className="inline-flex items-center gap-2 text-xl uppercase tracking-tight text-white"
@@ -52,14 +47,11 @@ function Panel({
         </span>
         <h3
           ref={headingRef}
-          className="mt-auto mb-auto font-display text-[2.5rem] uppercase tracking-tight"
+          className="font-display text-[2.5rem] uppercase tracking-tight"
         >
           {heading}
         </h3>
-        <span
-          data-reveal
-          className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white/60 text-black hover:bg-white hover:text-black"
-        >
+        <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white text-black hover:bg-white/90">
           {cta}
         </span>
       </div>

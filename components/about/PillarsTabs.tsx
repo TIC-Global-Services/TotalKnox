@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useScrambleText } from "@/hooks/useScrambleText";
@@ -34,24 +34,28 @@ const pillars: Pillar[] = [
   },
 ];
 
+function PillarBody({ text }: { text: string }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  useWordReveal(ref);
+  return (
+    <p
+      ref={ref}
+      className="mt-6 max-w-2xl text-2xl uppercase leading-tight tracking-tight text-white"
+    >
+      {text}
+    </p>
+  );
+}
+
 export default function PillarsTabs() {
   const [active, setActive] = useState(0);
   const p = pillars[active];
 
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const bodyRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-tabs]", stagger: 0.1 });
   useScrambleText(headingRef, { delay: 0.2 });
-  useWordReveal(bodyRef);
-
-  useEffect(() => {
-    // re-trigger word reveal when tab changes
-    if (!bodyRef.current) return;
-    const text = bodyRef.current.textContent ?? "";
-    bodyRef.current.textContent = text;
-  }, [active]);
 
   return (
     <section
@@ -94,12 +98,7 @@ export default function PillarsTabs() {
           >
             {p.heading}
           </h3>
-          <p
-            ref={bodyRef}
-            className="mt-6 max-w-2xl text-2xl uppercase leading-tight tracking-tight text-white"
-          >
-            {p.body}
-          </p>
+          <PillarBody key={p.key} text={p.body} />
         </div>
       </div>
     </section>

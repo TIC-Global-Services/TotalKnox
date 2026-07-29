@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
-import { useParallax } from "@/hooks/useParallax";
 import { useScrambleText } from "@/hooks/useScrambleText";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
@@ -35,23 +34,18 @@ const articles = [
 ];
 
 function ArticleCard({ title, image }: { title: string; image: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useParallax(ref, { yPercent: -12 });
-
   return (
     <a
       href="#"
       className="group relative flex aspect-[16/10] overflow-hidden rounded-2xl md:aspect-[5/3]"
     >
-      <div ref={ref} className="absolute inset-0">
-        <Image
-          src={image}
-          alt=""
-          fill
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
+      <Image
+        src={image}
+        alt=""
+        fill
+        sizes="(min-width: 768px) 33vw, 100vw"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
       <div className="absolute bottom-0 left-0 p-6 text-white">
         <p className="font-medium text-xl uppercase leading-tight tracking-tight md:text-2xl whitespace-pre-line">

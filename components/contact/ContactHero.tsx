@@ -5,12 +5,12 @@ export default function ContactHero() {
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden text-white ">
       <Image
-        src="/contact/hero.webp"
+        src="/contact/contact-hero.webp"
         alt="Fighters sparring"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[center_30%]"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-black/40" />
 

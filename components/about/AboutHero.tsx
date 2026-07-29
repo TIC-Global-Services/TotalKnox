@@ -17,12 +17,12 @@ export default function AboutHero() {
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden text-white">
       <Image
-        src="/about/hero.webp"
+        src="/about/about-hero.webp"
         alt="Fighter in action"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[10%_5%]"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
 

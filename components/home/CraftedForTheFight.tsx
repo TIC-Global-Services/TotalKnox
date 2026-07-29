@@ -22,7 +22,7 @@ export default function CraftedForTheFight() {
       ref={sectionRef}
       className="bg-bone py-16 md:py-28 overflow-hidden"
     >
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+      <div className="w-full px-6 md:px-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
         <div className="relative mx-auto w-full max-w-sm md:max-w-md">
           <div className="relative aspect-[3/5] w-full overflow-hidden rounded-2xl">
             <Image
@@ -36,7 +36,7 @@ export default function CraftedForTheFight() {
           </div>
         </div>
 
-        <div className="max-w-xl">
+        <div>
           <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-5xl md:text-[2.5rem]">
             <span ref={craftedRef} className="text-crimson">CRAFTED</span>{" "}
             <span ref={fightRef}>FOR THE FIGHT.</span>

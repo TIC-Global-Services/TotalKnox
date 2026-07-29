@@ -1,6 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #F2F2F2;
+  --color-crimson: #C62828;
+  --tracking-tightest: -0.04em;
+}
+
+@theme inline {
+  --font-display: var(--font-display), Impact, sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+}
 
 @layer base {
   html {

@@ -15,10 +15,12 @@ const slides = [
 export default function CoreEssentials() {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const line1Ref = useRef<HTMLSpanElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
-  useScrambleText(headingRef);
+  useScrambleText(line1Ref);
+  useScrambleText(line2Ref, { delay: 0.4 });
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % slides.length), 3000);
@@ -43,12 +45,10 @@ export default function CoreEssentials() {
           >
             Core Essentials
           </p>
-          <h2
-            ref={headingRef}
-            className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem]"
-          >
-            THE GEAR EVERY FIGHTER STARTS WITH
-            <br className="hidden md:block" /> REFINED FOR PERFORMANCE.
+          <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem]">
+            <span ref={line1Ref}>THE GEAR EVERY FIGHTER STARTS WITH</span>
+            <br className="hidden md:block" />
+            <span ref={line2Ref}> REFINED FOR PERFORMANCE.</span>
           </h2>
         </div>
 
@@ -57,8 +57,8 @@ export default function CoreEssentials() {
             const isCenter = s.offset === 0;
             return (
               <div
-                key={`${s.index}-${s.offset}`}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500"
+                key={s.image}
+                className="absolute left-1/2 top-1/2 transition-all duration-500 ease-out"
                 style={{
                   width: isCenter ? "min(660px, 90vw)" : "min(420px, 50vw)",
                   height: isCenter ? "392px" : "85%",
@@ -83,7 +83,7 @@ export default function CoreEssentials() {
           })}
         </div>
 
-        <div data-reveal className="mt-10 flex justify-center gap-2">
+        <div className="mt-10 flex justify-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
