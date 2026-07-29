@@ -4,11 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Shop", href: "#" },
-  { label: "Collections", href: "#" },
-  { label: "Training", href: "#" },
-  { label: "Our Story", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Equipments", href: "/equipments" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function Icon({ d, className = "h-5 w-5" }: { d: string; className?: string }) {
