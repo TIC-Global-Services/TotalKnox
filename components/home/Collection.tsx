@@ -1,7 +1,10 @@
 "use client";
 
+import { useRef } from "react";
 import { useState } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 const slides = [
   {
@@ -21,24 +24,49 @@ const slides = [
   },
 ];
 
+function ParallaxImage({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useParallax(ref, { yPercent: -10 });
+  return (
+    <div ref={ref} className="absolute inset-0">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
 export default function Collection() {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.12 });
 
   return (
-    <section id="collections" className="bg-bone py-16 md:py-24">
+    <section
+      ref={sectionRef}
+      id="collections"
+      className="bg-bone py-16 md:py-24 overflow-hidden"
+    >
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           <a
+            data-reveal-card
             href="#"
             className="group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl bg-black p-7 text-white md:aspect-[3/4]"
           >
-            <Image
-              src="/home/collection/created_for.webp"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 25vw, 100vw"
-              className="object-cover opacity-70 transition duration-500 group-hover:scale-105"
-            />
+            <div className="absolute inset-0">
+              <ParallaxImage
+                src="/home/collection/created_for.webp"
+                alt=""
+                sizes="(min-width: 1024px) 25vw, 100vw"
+              />
+            </div>
+            <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80" />
             <div className="relative">
               <h3 className="text-3xl uppercase leading-tight tracking-tight md:text-[2.5rem]">
@@ -52,9 +80,7 @@ export default function Collection() {
                 Shop Collection
               </span>
             </div>
-            <div className="relative">
-              
-            </div>
+            <div className="relative"></div>
           </a>
 
           {slides.map((s, i) => {
@@ -62,16 +88,18 @@ export default function Collection() {
             return (
               <a
                 key={s.title}
+                data-reveal-card
                 href="#"
                 onMouseEnter={() => setActive(i)}
                 className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl bg-black p-7 text-white md:aspect-[3/4]"
               >
-                <Image
+                <ParallaxImage
                   src={s.image}
                   alt={s.title}
-                  fill
                   sizes="(min-width: 1024px) 25vw, 100vw"
-                  className={`object-cover transition duration-700 ${
+                />
+                <div
+                  className={`absolute inset-0 transition-transform duration-700 ${
                     isActive ? "scale-105" : "scale-100"
                   }`}
                 />
@@ -86,7 +114,7 @@ export default function Collection() {
           })}
         </div>
 
-        <div className="mt-10 flex justify-center gap-2">
+        <div data-reveal-card className="mt-10 flex justify-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}

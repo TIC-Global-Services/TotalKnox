@@ -1,7 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
+import { useScrambleText } from "@/hooks/useScrambleText";
+import { useWordReveal } from "@/hooks/useWordReveal";
 
 const articles = [
   {
@@ -31,18 +35,23 @@ const articles = [
 ];
 
 function ArticleCard({ title, image }: { title: string; image: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useParallax(ref, { yPercent: -12 });
+
   return (
     <a
       href="#"
       className="group relative flex aspect-[16/10] overflow-hidden rounded-2xl md:aspect-[5/3]"
     >
-      <Image
-        src={image}
-        alt=""
-        fill
-        sizes="(min-width: 768px) 33vw, 100vw"
-        className="object-cover transition duration-500 group-hover:scale-105"
-      />
+      <div ref={ref} className="absolute inset-0">
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
       <div className="absolute bottom-0 left-0 p-6 text-white">
         <p className="font-medium text-xl uppercase leading-tight tracking-tight md:text-2xl whitespace-pre-line">
@@ -57,8 +66,25 @@ export default function FromTheFightFloor() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const fromRef = useRef<HTMLSpanElement>(null);
+  const floorRef = useRef<HTMLSpanElement>(null);
+  const sharpRef = useRef<HTMLSpanElement>(null);
+  const readyRef = useRef<HTMLSpanElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+
+  useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.1 });
+  useWordReveal(descRef);
+  useScrambleText(fromRef);
+  useScrambleText(floorRef, { delay: 0.4 });
+  useScrambleText(sharpRef);
+  useScrambleText(readyRef, { delay: 0.4 });
+
   return (
-    <section className="relative overflow-hidden bg-bone py-20 md:py-28">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-bone py-20 md:py-28"
+    >
       <div className="absolute inset-0">
         <Image
           src="/home/from_the_fight_floor/from_the_fight-BG.webp"
@@ -71,23 +97,31 @@ export default function FromTheFightFloor() {
 
       <div className="w-full px-6 md:px-10 relative">
         <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem] lg:text-[2.5rem]">
-          <span className="text-white">FROM THE FIGHT </span>
-          <span className="text-crimson">FLOOR.</span>
+          <span ref={fromRef} className="text-white">FROM THE FIGHT</span>{" "}
+          <span ref={floorRef} className="text-crimson">FLOOR.</span>
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
           {articles.map((a) => (
-            <ArticleCard key={a.title} title={a.title} image={a.image} />
+            <div data-reveal-card key={a.title}>
+              <ArticleCard title={a.title} image={a.image} />
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="w-full px-6 md:px-10 mt-20 md:mt-28 text-center relative">
+      <div
+        data-reveal-card
+        className="w-full px-6 md:px-10 mt-20 md:mt-28 text-center relative"
+      >
         <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-5xl md:text-5xl">
-          <span className="text-white">STAY SHARP. </span>
-          <span className="text-crimson">STAY READY.</span>
+          <span ref={sharpRef} className="text-white">STAY SHARP.</span>{" "}
+          <span ref={readyRef} className="text-crimson">STAY READY.</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-3xl text-lg leading-tight text-white">
+        <p
+          ref={descRef}
+          className="mx-auto mt-5 max-w-3xl text-lg leading-tight text-white"
+        >
           Get early access to every drop, insider gear insights, and exclusive
           releases, designed to keep you ahead, prepared, and always one step
           ahead of the game.

@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+import { useScrambleText } from "@/hooks/useScrambleText";
+import { useWordReveal } from "@/hooks/useWordReveal";
 
 type Pillar = {
   key: string;
@@ -35,8 +38,26 @@ export default function PillarsTabs() {
   const [active, setActive] = useState(0);
   const p = pillars[active];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const bodyRef = useRef<HTMLParagraphElement>(null);
+
+  useReveal(sectionRef, { selector: "[data-reveal-tabs]", stagger: 0.1 });
+  useScrambleText(headingRef, { delay: 0.2 });
+  useWordReveal(bodyRef);
+
+  useEffect(() => {
+    // re-trigger word reveal when tab changes
+    if (!bodyRef.current) return;
+    const text = bodyRef.current.textContent ?? "";
+    bodyRef.current.textContent = text;
+  }, [active]);
+
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-black text-white">
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-screen overflow-hidden bg-black text-white"
+    >
       <Image
         src="/about/protection.webp"
         alt=""
@@ -50,7 +71,7 @@ export default function PillarsTabs() {
         <div className="pt-10 md:pt-14">
           <ul className="flex items-center gap-6 text-xl md:gap-10">
             {pillars.map((it, i) => (
-              <li key={it.key} className="flex items-center gap-6 md:gap-10">
+              <li key={it.key} data-reveal-tabs className="flex items-center gap-6 md:gap-10">
                 <button
                   onClick={() => setActive(i)}
                   className={`relative pb-2 uppercase transition ${
@@ -67,10 +88,16 @@ export default function PillarsTabs() {
         </div>
 
         <div className="mt-auto pb-20 md:pb-32">
-          <h3 className="font-display text-[2.5rem] uppercase leading-tight tracking-tight">
+          <h3
+            ref={headingRef}
+            className="font-display text-[2.5rem] uppercase leading-tight tracking-tight"
+          >
             {p.heading}
           </h3>
-          <p className="mt-6 max-w-2xl text-2xl uppercase leading-tight tracking-tight text-white">
+          <p
+            ref={bodyRef}
+            className="mt-6 max-w-2xl text-2xl uppercase leading-tight tracking-tight text-white"
+          >
             {p.body}
           </p>
         </div>

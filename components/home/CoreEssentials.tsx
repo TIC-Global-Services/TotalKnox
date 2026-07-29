@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+import { useScrambleText } from "@/hooks/useScrambleText";
 
 const slides = [
   { label: "Pro Gloves", image: "/home/core_essentials/core_essentials.webp" },
@@ -12,6 +14,11 @@ const slides = [
 
 export default function CoreEssentials() {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useReveal(sectionRef, { selector: "[data-reveal]" });
+  useScrambleText(headingRef);
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % slides.length), 3000);
@@ -24,11 +31,22 @@ export default function CoreEssentials() {
   });
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section
+      ref={sectionRef}
+      className="bg-white py-16 md:py-24"
+    >
       <div className="w-full px-6 md:px-10 relative">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.375em] text-crimson">Core Essentials</p>
-          <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem]">
+          <p
+            data-reveal
+            className="text-xs font-semibold uppercase tracking-[0.375em] text-crimson"
+          >
+            Core Essentials
+          </p>
+          <h2
+            ref={headingRef}
+            className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem]"
+          >
             THE GEAR EVERY FIGHTER STARTS WITH
             <br className="hidden md:block" /> REFINED FOR PERFORMANCE.
           </h2>
@@ -65,7 +83,7 @@ export default function CoreEssentials() {
           })}
         </div>
 
-        <div className="mt-10 flex justify-center gap-2">
+        <div data-reveal className="mt-10 flex justify-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
