@@ -36,7 +36,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-12">
           <Image
-            src="/shared/footerLogo.webp"
+            src="/shared/footerlogo.webp"
             alt="TotalKnox fist"
             width={400}
             height={400}
