@@ -57,7 +57,7 @@ export default function ContactForm() {
           rows={6}
           className="w-full border border-black/50 rounded-lg bg-white px-4 py-4 text-base font-semibold uppercase tracking-[0.18em] text-black placeholder:text-black/50 focus:border-black focus:outline-none mt-4 resize-none"
         />
-        <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base uppercase tracking-tight transition bg-black text-white hover:bg-black mt-6 px-10">
+        <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base uppercase tracking-tight transition bg-black text-white hover:bg-white hover:text-black hover:border hover:border-black mt-6 px-10">
           {sent ? "Message Sent" : "Send Message"}
         </button>
       </form>

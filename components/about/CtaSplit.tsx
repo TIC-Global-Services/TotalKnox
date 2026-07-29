@@ -51,7 +51,7 @@ function Panel({
         >
           {heading}
         </h3>
-        <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white text-black hover:bg-white/90">
+        <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white/60 text-black hover:bg-white hover:scale-105 cursor-pointer">
           {cta}
         </span>
       </div>

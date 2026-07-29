@@ -52,8 +52,8 @@ export default function Collection() {
       id="collections"
       className="bg-bone py-16 md:py-24 overflow-hidden"
     >
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="w-full px-6 md:px-10">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
           <a
             data-reveal-card
             href="#"
@@ -68,15 +68,17 @@ export default function Collection() {
             </div>
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80" />
-            <div className="relative">
-              <h3 className="text-3xl uppercase leading-tight tracking-tight md:text-[2.5rem]">
-                Crafted for
+            <div className="relative pt-24 pl-6">
+              <h3 className="text-3xl md:text-[2.5rem] uppercase leading-[1] tracking-tight ">
+                Crafted
                 <br />
-                Every Combat
+                for Every
+                <br />
+                Combat
                 <br />
                 Style
               </h3>
-              <span className="mt-4 inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-normal uppercase tracking-tight transition bg-white/60 text-black hover:bg-white">
+              <span className="mt-4 inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-normal uppercase tracking-tight transition bg-white/60 text-black hover:bg-white hover:scale-105">
                 Shop Collection
               </span>
             </div>

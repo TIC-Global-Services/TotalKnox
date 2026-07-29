@@ -88,7 +88,7 @@ export default function SignatureSelections() {
           </h2>
           <p
             ref={subRef}
-            className="mx-auto mt-4 max-w-md text-lg text-black"
+            className="text-lg text-black"
           >
             Gear trusted in training and competition.
           </p>

@@ -45,17 +45,19 @@ const groups: Group[] = [
 function Row({ item }: { item: Q }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-ink/15">
+    <div className="border-b border-black">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between gap-6 py-5 text-left transition hover:text-black/70"
+        className="flex w-full items-center justify-between gap-6 py-5 text-left transition hover:text-black"
       >
         <span className="text-base md:text-xl uppercase tracking-tight text-black">
           {item.q}
         </span>
         <svg
           viewBox="0 0 24 24"
-          className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 shrink-0 transition-transform duration-500 ease-out ${
+            open ? "rotate-180" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
@@ -63,11 +65,21 @@ function Row({ item }: { item: Q }) {
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>
-      {open && (
-        <p className="pb-5 pr-10 text-sm leading-relaxed text-black/70">
-          {item.a}
-        </p>
-      )}
+      <div
+        className={`grid transition-[grid-template-rows] duration-500 ease-out ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p
+            className={`pb-5 pr-10 text-sm leading-relaxed text-black/70 transition-all duration-500 ease-out ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            }`}
+          >
+            {item.a}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -92,7 +104,7 @@ export default function Faq() {
       <div className="md:col-span-7">
         {groups.map((g) => (
           <div key={g.label} className="mb-12 last:mb-0">
-            <h3 className="font-display text-2xl uppercase tracking-tight text-black border-b border-black/40 pb-4">
+            <h3 className="font-display text-2xl uppercase tracking-tight text-black border-b border-black pb-4">
               {g.label}
             </h3>
             <div>

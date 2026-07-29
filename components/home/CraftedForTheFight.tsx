@@ -53,7 +53,7 @@ export default function CraftedForTheFight() {
           </p>
           <a
             href="#"
-            className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-[1] transition bg-black text-white hover:bg-black mt-8"
+            className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-[1] transition bg-black text-white hover:scale-105 mt-8"
           >
             Our Philosophy
           </a>

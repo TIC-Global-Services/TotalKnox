@@ -136,7 +136,7 @@ export default function FromTheFightFloor() {
             placeholder="Enter your email"
             className="flex-1 rounded-2xl border border-white/30 bg-white/5 px-6 py-4 text-base uppercase tracking-[0.18em] text-white placeholder:text-white focus:border-white focus:outline-none"
           />
-          <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base uppercase tracking-[1] transition bg-white text-black hover:bg-white/90">
+          <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base uppercase tracking-[1] transition bg-black text-white hover:bg-white hover:text-black hover:scale-105 cursor-pointer">
             {done ? "Subscribed" : "Stay Updated"}
           </button>
         </form>

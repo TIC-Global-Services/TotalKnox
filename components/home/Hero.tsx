@@ -60,10 +60,10 @@ export default function Hero() {
         </p>
 
         <div data-reveal className="mt-8 flex flex-wrap items-center gap-3">
-          <a href="#collections" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-normal uppercase tracking-tight transition border border-white/80 text-white hover:bg-white hover:text-black">
+          <a href="#collections" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-normal uppercase tracking-tight transition border border-white/80 text-white hover:bg-white hover:text-black hover:scale-105">
             Shop Collection
           </a>
-          <a href="#explore" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base tracking-tight font-normal uppercase transition bg-black text-white hover:bg-black">
+          <a href="#explore" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base tracking-tight font-normal uppercase transition bg-black text-white hover:bg-white hover:text-black hover:scale-105">
             Explore Gear
           </a>
         </div>
