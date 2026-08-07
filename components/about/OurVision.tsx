@@ -71,13 +71,13 @@ export default function OurVision() {
           </div>
 
           <div data-reveal className="relative z-10 flex justify-center">
-            <span className="font-display inline-flex items-center gap-2 text-xl uppercase tracking-tight">
+            <span className="font-display inline-flex items-center gap-2 text-sm md:text-xl uppercase tracking-tight mb-10">
               <span className="inline-block h-2.5 w-2.5 bg-current" />
               Our Vision
             </span>
           </div>
 
-          <h2 className="relative z-10 text-center font-display text-5xl md:text-[3.375rem] uppercase leading-tight tracking-tight">
+          <h2 className="relative z-10 text-center font-display text-2xl md:text-[3.375rem] uppercase leading-tight tracking-tight mb-10">
             <span>Style</span>{" "}
             <span className="relative inline-block align-baseline">
               <span
@@ -92,7 +92,7 @@ export default function OurVision() {
 
           <p
             ref={descRef}
-            className="relative z-10 text-left text-xl uppercase leading-tight tracking-tight"
+            className="relative z-10 text-center md:text-left text-base md:text-xl uppercase leading-tight tracking-tight"
           >
             We design gear built for peak performance with a clean, modern
             edge. The brand was created to bridge the gap between performance

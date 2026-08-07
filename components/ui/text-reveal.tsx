@@ -21,18 +21,38 @@ export function TextReveal({ text, className = "" }: TextRevealProps) {
     const section = containerRef.current?.closest("section");
     if (!section) return;
 
-    gsap.to(".word-span", {
-      color: "#000000",
-      stagger: 0.08,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        pin: section,
-        start: "top top",
-        end: "+=80%",
-        scrub: 0.5,
-      },
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      gsap.to(".word-span", {
+        color: "#000000",
+        stagger: 0.08,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          pin: section,
+          start: "top top",
+          end: "+=80%",
+          scrub: 0.5,
+        },
+      });
     });
+
+    mm.add("(max-width: 767px)", () => {
+      gsap.to(".word-span", {
+        color: "#000000",
+        stagger: 0.08,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "top 30%",
+          scrub: 0.5,
+        },
+      });
+    });
+
+    return () => mm.revert();
   }, { scope: containerRef });
 
   const words = text.split(/(\s+)/);

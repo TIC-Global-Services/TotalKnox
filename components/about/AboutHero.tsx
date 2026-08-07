@@ -22,21 +22,21 @@ export default function AboutHero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-[30%_50%]"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
 
       <Header tone="light" />
 
       <div className="w-full px-6 md:px-10 relative z-10 flex h-full flex-col">
-        <div className="mt-auto pb-14 md:pb-32 grid grid-cols-1 md:grid-cols-1 items-end gap-y-6 md:gap-x-10">
+        <div className="mt-auto pb-14 md:pb-32 grid grid-cols-1 md:grid-cols-1 items-end gap-y-48 md:gap-y-6 md:gap-x-10">
           <h2
             ref={createRef}
-            className="font-display text-[4.375rem] uppercase tracking-tight text-white"
+            className="font-display text-4xl md:text-[4.375rem] uppercase tracking-tight text-white"
           >
             We create
           </h2>
-          <h2 className="font-display text-[4.375rem] uppercase leading-tight tracking-tight text-white md:text-right">
+          <h2 className="font-display text-4xl md:text-[4.375rem] uppercase leading-tight tracking-tight text-white text-right md:text-right">
             <span ref={practicalRef}>Practical and</span>
             <br />
             <span ref={apparelRef}>Functional Apparel.</span>

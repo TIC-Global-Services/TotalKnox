@@ -88,7 +88,7 @@ export default function SignatureSelections() {
           </h2>
           <p
             ref={subRef}
-            className="text-lg text-black"
+            className="text-sm md:text-lg text-black"
           >
             Gear trusted in training and competition.
           </p>

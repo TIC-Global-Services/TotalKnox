@@ -36,14 +36,14 @@ export default function CraftedForTheFight() {
           </div>
         </div>
 
-        <div>
-          <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-5xl md:text-[2.5rem]">
+        <div className ="text-center md:text-left">
+          <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-xl md:text-[2.5rem]">
             <span ref={craftedRef} className="text-crimson">CRAFTED</span>{" "}
             <span ref={fightRef}>FOR THE FIGHT.</span>
           </h2>
           <p
             ref={descRef}
-            className="mt-6 text-lg leading-tight text-black md:text-base"
+            className="mt-6 text-base md:text-lg leading-tight text-black md:text-base"
           >
             Every stitch, every layer, every detail is meticulously engineered
             to absorb impact, endure the grind, and elevate your performance
@@ -53,7 +53,7 @@ export default function CraftedForTheFight() {
           </p>
           <a
             href="#"
-            className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-[1] transition bg-black text-white hover:scale-105 mt-8"
+            className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-xs md:text-base font-semibold uppercase tracking-[1] transition bg-black text-white hover:scale-105 mt-8"
           >
             Our Philosophy
           </a>

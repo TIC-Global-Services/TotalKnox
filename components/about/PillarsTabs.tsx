@@ -40,7 +40,7 @@ function PillarBody({ text }: { text: string }) {
   return (
     <p
       ref={ref}
-      className="mt-6 max-w-2xl text-2xl uppercase leading-tight tracking-tight text-white"
+      className="mt-6 max-w-2xl text-base md:text-2xl uppercase leading-tight tracking-tight text-white"
     >
       {text}
     </p>
@@ -73,7 +73,7 @@ export default function PillarsTabs() {
 
       <div className="w-full px-6 md:px-10 relative flex min-h-screen flex-col">
         <div className="pt-10 md:pt-14">
-          <ul className="flex items-center gap-6 text-xl md:gap-10">
+          <ul className="flex items-center gap-6 text-base md:text-xl md:gap-10">
             {pillars.map((it, i) => (
               <li key={it.key} data-reveal-tabs className="flex items-center gap-6 md:gap-10">
                 <button
@@ -94,7 +94,7 @@ export default function PillarsTabs() {
         <div className="mt-auto pb-20 md:pb-32">
           <h3
             ref={headingRef}
-            className="font-display text-[2.5rem] uppercase leading-tight tracking-tight"
+            className="font-display text-2xl md:text-[2.5rem] uppercase leading-tight tracking-tight"
           >
             {p.heading}
           </h3>

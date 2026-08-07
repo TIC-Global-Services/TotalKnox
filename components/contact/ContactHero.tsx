@@ -16,7 +16,7 @@ export default function ContactHero() {
 
       <Header tone="light" />
 
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 relative z-10 flex h-full items-center justify-center">
+      <div className="w-full px-6 md:px-10 relative z-10 flex h-full items-center justify-center">
         <h1 className="font-display text-4xl uppercase leading-[0.95] tracking-tightest text-white md:text-6xl ">
           Contact Us
         </h1>

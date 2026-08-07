@@ -37,7 +37,7 @@ export default function ExploreCollections() {
     >
       <div className="w-full px-6 md:px-10 relative">
         <div data-reveal className="mb-8 flex justify-center">
-          <span className="inline-flex items-center gap-2 text-xl uppercase tracking-tight text-black">
+          <span className="inline-flex items-center gap-2 text-base md:text-xl uppercase tracking-tight text-black">
             <span className="inline-block h-2.5 w-2.5 bg-black" />
             Explore Collections
           </span>
@@ -48,7 +48,7 @@ export default function ExploreCollections() {
             <li key={it.label} data-reveal>
               <a
                 href={it.href}
-                className="group relative flex items-center justify-center py-6 text-center font-display text-3xl uppercase leading-tight tracking-tight text-black transition md:py-8 md:text-6xl"
+                className="group relative flex items-center justify-center py-6 text-center font-display  uppercase leading-tight tracking-tight text-black transition md:py-8 text-2xl md:text-6xl"
               >
                 <span>{it.label}</span>
                 <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100">

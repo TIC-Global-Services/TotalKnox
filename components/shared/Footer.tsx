@@ -1,71 +1,87 @@
 import Image from "next/image";
 
-const policies = [
-  ["Shipping", "Privacy Policy"],
-  ["Cancellation & Returns", "Terms & Conditions"],
-  ["Payments", "Warranty"],
-];
-const features = [
-  ["Track Orders", "Home"],
-  ["Blogs", "Our Story"],
-  ["", "Warranty"],
-];
+const policies = ["Shipping", "Cancellation & Returns", "Payments"];
+const features = ["Home", "Our Story", "Warranty"];
+const morePolicies = ["Privacy Policy", "Terms & Conditions", "Warranty"];
+const moreFeatures = ["Track Orders", "Blogs"];
 
 export default function Footer() {
   return (
     <footer className="bg-crimson text-white">
-      <div className="w-full px-6 md:px-10 relative grid grid-cols-1 gap-10 py-12 md:grid-cols-3">
-        <div>
-          <h4 className="font-display font-semibold text-lg uppercase tracking-[1] text-black">
-            Policies
-          </h4>
-          <div className="mt-5 grid grid-cols-2 gap-x-2 gap-y-2 text-sm tracking-tight">
-            {policies.flat().map((p, i) => (
-              <a
-                key={i}
-                href="#"
-                className={`hover:opacity-80 ${
-                  !p ? "pointer-events-none opacity-0" : ""
-                }`}
-              >
-                {p}
-              </a>
-            ))}
+      <div className="w-full px-6 md:px-10 py-12 md:py-16">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-x-10">
+          <div>
+            <h4 className="font-display font-bold text-lg uppercase tracking-tight text-black">
+              Policies
+            </h4>
+            <ul className="mt-4 space-y-1 text-sm tracking-tight">
+              {policies.map((p) => (
+                <li key={p}>
+                  <a href="#" className="hover:opacity-80">
+                    {p}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-6 space-y-1 text-sm tracking-tight">
+              {morePolicies.map((p) => (
+                <li key={p}>
+                  <a href="#" className="hover:opacity-80">
+                    {p}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden md:flex flex-col items-center justify-center text-center">
+            <Image
+              src="/shared/footerlogo.webp"
+              alt="TotalKnox fist"
+              width={220}
+              height={220}
+              className="object-cover"
+            />
+          </div>
+
+          <div className="text-right">
+            <h4 className="font-display font-bold text-lg uppercase tracking-tight text-black">
+              Features
+            </h4>
+            <ul className="mt-4 space-y-1 text-sm tracking-tight">
+              {features.map((p) => (
+                <li key={p}>
+                  <a href="#" className="hover:opacity-80">
+                    {p}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-6 space-y-1 text-sm tracking-tight">
+              {moreFeatures.map((p) => (
+                <li key={p}>
+                  <a href="#" className="hover:opacity-80">
+                    {p}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-2 flex flex-col items-center text-center md:hidden">
+            <Image
+              src="/shared/footerlogo.webp"
+              alt="TotalKnox fist"
+              width={200}
+              height={200}
+              className="object-cover"
+            />
           </div>
         </div>
-
-        <div className="flex flex-col items-center justify-center text-center pt-8 md:pt-12">
-          <Image
-            src="/shared/footerlogo.webp"
-            alt="TotalKnox fist"
-            width={400}
-            height={400}
-            className="object-cover "
-          />
-        </div>
-
-        <div className="md:text-right">
-          <h4 className="font-display font-semibold text-lg uppercase tracking-[1] text-black">
-            Features
-          </h4>
-          <div className="mt-5 grid grid-cols-2 gap-x-2 gap-y-2 text-sm tracking-tight md:justify-items-end">
-            {features.flat().map((p, i) => (
-              <a
-                key={i}
-                href="#"
-                className={`hover:opacity-80 ${
-                  !p ? "pointer-events-none opacity-0" : ""
-                }`}
-              >
-                {p}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="col-span-1 md:col-span-3 flex flex-col items-center justify-between gap-3 text-xs tracking-none text-black md:flex-row">
-          <span>© 2026 Totalknox. All Rights Reserved.</span>
+        
+        <div className="mt-8 flex flex-col items-center gap-1 text-center text-xs text-black">
           <span>Designed &amp; Developed by TIC Global Services</span>
+          <span>© 2026 Totalknox. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

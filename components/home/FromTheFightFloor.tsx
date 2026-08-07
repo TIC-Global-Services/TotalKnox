@@ -37,18 +37,18 @@ function ArticleCard({ title, image }: { title: string; image: string }) {
   return (
     <a
       href="#"
-      className="group relative flex aspect-[16/10] overflow-hidden rounded-2xl md:aspect-[5/3]"
+      className="group relative flex h-[110px] w-[170px] overflow-hidden rounded-2xl md:aspect-[5/3] md:h-auto md:w-full"
     >
       <Image
         src={image}
         alt=""
         fill
-        sizes="(min-width: 768px) 33vw, 100vw"
+        sizes="(min-width: 768px) 33vw, 180px"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 p-6 text-white">
-        <p className="font-medium text-xl uppercase leading-tight tracking-tight md:text-2xl whitespace-pre-line">
+      <div className="absolute bottom-0 left-0 p-4 text-white md:p-6">
+        <p className="font-medium text-sm uppercase leading-tight tracking-tight md:text-2xl whitespace-pre-line">
           {title}
         </p>
       </div>
@@ -89,15 +89,15 @@ export default function FromTheFightFloor() {
         />
       </div>
 
-      <div className="w-full px-6 md:px-10 relative">
-        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem] lg:text-[2.5rem]">
+      <div className="w-full px-6 md:px-10 relative ">
+        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-[2.125rem] lg:text-[2.5rem] text-center md:text-left">
           <span ref={fromRef} className="text-white">FROM THE FIGHT</span>{" "}
           <span ref={floorRef} className="text-crimson">FLOOR.</span>
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 justify-items-center gap-6 md:grid-cols-3 md:gap-6">
           {articles.map((a) => (
-            <div data-reveal-card key={a.title}>
+            <div data-reveal-card key={a.title} className="md:w-full">
               <ArticleCard title={a.title} image={a.image} />
             </div>
           ))}
@@ -108,13 +108,13 @@ export default function FromTheFightFloor() {
         data-reveal-card
         className="w-full px-6 md:px-10 mt-20 md:mt-28 text-center relative"
       >
-        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-5xl md:text-5xl">
+        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-5xl">
           <span ref={sharpRef} className="text-white">STAY SHARP.</span>{" "}
           <span ref={readyRef} className="text-crimson">STAY READY.</span>
         </h2>
         <p
           ref={descRef}
-          className="mx-auto mt-5 max-w-3xl text-lg leading-tight text-white"
+          className="mx-auto mt-5 max-w-3xl text-sm md:text-lg leading-tight text-white"
         >
           Get early access to every drop, insider gear insights, and exclusive
           releases, designed to keep you ahead, prepared, and always one step
@@ -134,9 +134,9 @@ export default function FromTheFightFloor() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 rounded-2xl border border-white/30 bg-white/5 px-6 py-4 text-base uppercase tracking-[0.18em] text-white placeholder:text-white focus:border-white focus:outline-none"
+            className="flex-1 rounded-2xl border border-white/30 bg-white/5 px-6 py-4 text-sm md:text-base uppercase tracking-[0.18em] text-white placeholder:text-white focus:border-white focus:outline-none"
           />
-          <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base uppercase tracking-[1] transition bg-black text-white hover:bg-white hover:text-black hover:scale-105 cursor-pointer">
+          <button type="submit" className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-sm md:text-base uppercase tracking-[1] transition bg-black text-white hover:bg-white hover:text-black hover:scale-105 cursor-pointer">
             {done ? "Subscribed" : "Stay Updated"}
           </button>
         </form>

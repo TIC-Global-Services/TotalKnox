@@ -23,23 +23,24 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100svh] min-h-[680px] w-full overflow-hidden text-white"
+      className="relative w-full bg-gradient-to-b from-[#041514] from-50% to-bone to-50% px-3 pt-3 pb-8 md:px-4 md:pt-4 md:pb-12"
     >
-      <Image
-        src="/home/hero-home.webp"
-        alt="Boxer in motion"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      <div className="relative h-[88svh] min-h-[800px] w-full overflow-hidden rounded-2xl text-white">
+        <Image
+          src="/home/hero-home.webp"
+          alt="Boxer in motion"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[40%_50%] md:object-center "
+        />
 
-      <Header tone="light" />
+        <Header tone="light" />
 
-      <div className="w-full  px-6 md:px-10 relative z-10 flex h-full flex-col justify-end pb-14 md:pb-20">
+        <div className="w-full px-6 md:px-10 relative z-10 flex h-full flex-col justify-end pb-14 md:pb-20">
         <h1
           ref={titleRef}
-          className="font-display uppercase font-bold leading-tight tracking-tight text-[3.25rem] md:text-[5rem] lg:text-[6.25rem]"
+          className="font-display uppercase font-bold leading-tight tracking-tight text-4xl md:text-[5rem] lg:text-[6.25rem]"
         >
           <span ref={builtRef}>BUILT FOR</span>{" "}
           <span
@@ -52,7 +53,7 @@ export default function Hero() {
 
         <p
           ref={descRef}
-          className="max-w-4xl text-base leading-tight md:text-lg"
+          className="max-w-4xl text-sm md:text-base leading-tight md:text-lg"
         >
           Precision-engineered combat gear for those who demand more from every
           session — training harder, moving with sharper intent, and fighting
@@ -67,6 +68,7 @@ export default function Hero() {
             Explore Gear
           </a>
         </div>
+      </div>
       </div>
     </section>
   );

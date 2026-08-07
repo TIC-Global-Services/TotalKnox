@@ -40,18 +40,18 @@ function Panel({
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-between px-6 text-center py-10">
         <span
           data-reveal
-          className="inline-flex items-center gap-2 text-xl uppercase tracking-tight text-white"
+          className="inline-flex items-center gap-2 text-sm md:text-xl uppercase tracking-tight text-white"
         >
           <span className="inline-block h-2.5 w-2.5 bg-white" />
           {eyebrow}
         </span>
         <h3
           ref={headingRef}
-          className="font-display text-[2.5rem] uppercase tracking-tight"
+          className="font-display text-2xl md:text-[2.5rem] uppercase tracking-tight"
         >
           {heading}
         </h3>
-        <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white/60 text-black hover:bg-white hover:scale-105 cursor-pointer">
+        <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-sm md:text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white/60 text-black hover:bg-white hover:scale-105 cursor-pointer">
           {cta}
         </span>
       </div>

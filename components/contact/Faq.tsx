@@ -89,12 +89,12 @@ export default function Faq() {
     <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
       <div className="md:col-span-5">
         <span className="inline-flex items-center gap-2 text-xl uppercase tracking-tight text-black"><span className="inline-block h-2.5 w-2.5 bg-black" />We're Here to Help</span>
-        <h2 className="mt-6 font-display text-3xl uppercase leading-tight tracking-tight text-black md:text-[2.5rem]">
+        <h2 className="mt-6 font-display text-2xl md:text-3xl uppercase leading-tight tracking-tight text-black md:text-[2.5rem]">
           Frequently Asked
           <br />
           Questions
         </h2>
-        <p className="text-xl uppercase leading-tight tracking-tight text-black mt-6">
+        <p className="text-sm md:text-xl uppercase leading-tight tracking-tight text-black mt-6">
           Looking for a quick answer? Our frequently asked questions are
           regularly updated for our most common customer queries. Contact us if
           you don't find what you are looking for.
@@ -104,7 +104,7 @@ export default function Faq() {
       <div className="md:col-span-7">
         {groups.map((g) => (
           <div key={g.label} className="mb-12 last:mb-0">
-            <h3 className="font-display text-2xl uppercase tracking-tight text-black border-b border-black pb-4">
+            <h3 className="font-display text-base md:text-2xl uppercase tracking-tight text-black border-b border-black pb-4">
               {g.label}
             </h3>
             <div>

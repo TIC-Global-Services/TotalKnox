@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #F2F2F2;
+  --color-bone: #FAF9F6;
   --color-crimson: #C62828;
   --tracking-tightest: -0.04em;
 }
@@ -18,5 +18,15 @@
   }
   body {
     @apply bg-bone text-black font-sans;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

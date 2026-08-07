@@ -45,7 +45,7 @@ export default function CoreEssentials() {
           >
             Core Essentials
           </p>
-          <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-3xl md:text-[2.125rem]">
+          <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-base md:text-[2.125rem]">
             <span ref={line1Ref}>THE GEAR EVERY FIGHTER STARTS WITH</span>
             <br className="hidden md:block" />
             <span ref={line2Ref}> REFINED FOR PERFORMANCE.</span>
