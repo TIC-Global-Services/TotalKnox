@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 const slides = [
   { label: "Pro Gloves", image: "/home/core_essentials/core_essentials.webp" },
@@ -14,8 +15,12 @@ const slides = [
 export default function CoreEssentials() {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const line1Ref = useRef<HTMLSpanElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
+  useFadeIn(line1Ref, { delay: 0.1 });
+  useFadeIn(line2Ref, { delay: 0.25 });
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % slides.length), 3000);
@@ -41,9 +46,9 @@ export default function CoreEssentials() {
             Core Essentials
           </p>
           <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-base md:text-[2.125rem]">
-            <span>THE GEAR EVERY FIGHTER STARTS WITH</span>
+            <span ref={line1Ref} className="inline-block">THE GEAR EVERY FIGHTER STARTS WITH</span>
             <br className="hidden md:block" />
-            <span> REFINED FOR PERFORMANCE.</span>
+            <span ref={line2Ref} className="inline-block"> REFINED FOR PERFORMANCE.</span>
           </h2>
         </div>
 

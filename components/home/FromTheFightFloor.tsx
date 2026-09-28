@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
+import { useFadeIn } from "@/hooks/useFadeIn";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
 const articles = [
@@ -60,10 +61,18 @@ export default function FromTheFightFloor() {
   const [done, setDone] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
+  const fromRef = useRef<HTMLSpanElement>(null);
+  const floorRef = useRef<HTMLSpanElement>(null);
+  const sharpRef = useRef<HTMLSpanElement>(null);
+  const readyRef = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.1 });
   useWordReveal(descRef);
+  useFadeIn(fromRef, { delay: 0.1 });
+  useFadeIn(floorRef, { delay: 0.25 });
+  useFadeIn(sharpRef, { delay: 0.1 });
+  useFadeIn(readyRef, { delay: 0.25 });
 
   return (
     <section
@@ -82,8 +91,8 @@ export default function FromTheFightFloor() {
 
       <div className="w-full px-6 md:px-10 relative ">
         <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-[2.125rem] lg:text-[2.5rem] text-center md:text-left">
-          <span className="text-white">FROM THE FIGHT</span>{" "}
-          <span className="text-crimson">FLOOR.</span>
+          <span ref={fromRef} className="inline-block text-white">FROM THE FIGHT</span>{" "}
+          <span ref={floorRef} className="inline-block text-crimson">FLOOR.</span>
         </h2>
 
         <div className="mt-10 grid grid-cols-2 justify-items-center gap-6 md:grid-cols-3 md:gap-6">
@@ -100,8 +109,8 @@ export default function FromTheFightFloor() {
         className="w-full px-6 md:px-10 mt-20 md:mt-28 text-center relative"
       >
         <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-5xl">
-          <span className="text-white">STAY SHARP.</span>{" "}
-          <span className="text-crimson">STAY READY.</span>
+          <span ref={sharpRef} className="inline-block text-white">STAY SHARP.</span>{" "}
+          <span ref={readyRef} className="inline-block text-crimson">STAY READY.</span>
         </h2>
         <p
           ref={descRef}

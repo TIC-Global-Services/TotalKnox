@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 function Panel({
   eyebrow,
@@ -18,8 +19,10 @@ function Panel({
   alt: string;
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
+  useFadeIn(headingRef, { delay: 0.15 });
 
   return (
     <div
@@ -42,7 +45,10 @@ function Panel({
           <span className="inline-block h-2.5 w-2.5 bg-white" />
           {eyebrow}
         </span>
-        <h3 className="font-display text-2xl md:text-[2.5rem] uppercase tracking-tight">
+        <h3
+          ref={headingRef}
+          className="font-display text-2xl md:text-[2.5rem] uppercase tracking-tight"
+        >
           {heading}
         </h3>
         <span className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-sm md:text-base font-semibold uppercase tracking-tight transition border border-white/40 bg-white/60 text-black hover:bg-white hover:scale-105 cursor-pointer">

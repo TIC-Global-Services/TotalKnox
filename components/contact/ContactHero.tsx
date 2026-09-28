@@ -1,7 +1,14 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import Header from "@/components/shared/Header";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 export default function ContactHero() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  useFadeIn(titleRef, { delay: 0.2 });
+
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden text-white ">
       <Image
@@ -17,7 +24,10 @@ export default function ContactHero() {
       <Header tone="light" />
 
       <div className="w-full px-6 md:px-10 relative z-10 flex h-full items-center justify-center">
-        <h1 className="font-display text-4xl uppercase leading-[0.95] tracking-tightest text-white md:text-6xl ">
+        <h1
+          ref={titleRef}
+          className="font-display text-4xl uppercase leading-[0.95] tracking-tightest text-white md:text-6xl "
+        >
           Contact Us
         </h1>
       </div>
