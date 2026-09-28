@@ -3,19 +3,14 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
-import { useScrambleText } from "@/hooks/useScrambleText";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
 export default function CraftedForTheFight() {
   const sectionRef = useRef<HTMLElement>(null);
-  const craftedRef = useRef<HTMLSpanElement>(null);
-  const fightRef = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]", stagger: 0.12 });
   useWordReveal(descRef);
-  useScrambleText(craftedRef);
-  useScrambleText(fightRef, { delay: 0.3 });
 
   return (
     <section
@@ -38,8 +33,8 @@ export default function CraftedForTheFight() {
 
         <div className ="text-center md:text-left">
           <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-xl md:text-[2.5rem]">
-            <span ref={craftedRef} className="text-crimson">CRAFTED</span>{" "}
-            <span ref={fightRef}>FOR THE FIGHT.</span>
+            <span className="text-crimson">CRAFTED</span>{" "}
+            <span>FOR THE FIGHT.</span>
           </h2>
           <p
             ref={descRef}

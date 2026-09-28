@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
-import { useScrambleText } from "@/hooks/useScrambleText";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
 type Pillar = {
@@ -52,10 +51,8 @@ export default function PillarsTabs() {
   const p = pillars[active];
 
   const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-tabs]", stagger: 0.1 });
-  useScrambleText(headingRef, { delay: 0.2 });
 
   return (
     <section
@@ -92,10 +89,7 @@ export default function PillarsTabs() {
         </div>
 
         <div className="mt-auto pb-20 md:pb-32">
-          <h3
-            ref={headingRef}
-            className="font-display text-2xl md:text-[2.5rem] uppercase leading-tight tracking-tight"
-          >
+          <h3 className="font-display text-2xl md:text-[2.5rem] uppercase leading-tight tracking-tight">
             {p.heading}
           </h3>
           <PillarBody key={p.key} text={p.body} />

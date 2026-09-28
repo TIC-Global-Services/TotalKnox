@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useParallax } from "@/hooks/useParallax";
-import { useScrambleText } from "@/hooks/useScrambleText";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
 const items = [
@@ -66,14 +65,10 @@ function SelectionCard({
 
 export default function SignatureSelections() {
   const sectionRef = useRef<HTMLElement>(null);
-  const sigRef = useRef<HTMLSpanElement>(null);
-  const selRef = useRef<HTMLSpanElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.15 });
   useWordReveal(subRef);
-  useScrambleText(sigRef);
-  useScrambleText(selRef, { delay: 0.3 });
 
   return (
     <section
@@ -83,8 +78,8 @@ export default function SignatureSelections() {
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
         <div className="text-center">
           <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-5xl">
-            <span ref={sigRef}>SIGNATURE</span>{" "}
-            <span ref={selRef} className="text-crimson">SELECTIONS</span>
+            <span>SIGNATURE</span>{" "}
+            <span className="text-crimson">SELECTIONS</span>
           </h2>
           <p
             ref={subRef}

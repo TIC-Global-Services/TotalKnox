@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
-import { useScrambleText } from "@/hooks/useScrambleText";
 
 const slides = [
   { label: "Pro Gloves", image: "/home/core_essentials/core_essentials.webp" },
@@ -15,12 +14,8 @@ const slides = [
 export default function CoreEssentials() {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const line1Ref = useRef<HTMLSpanElement>(null);
-  const line2Ref = useRef<HTMLSpanElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
-  useScrambleText(line1Ref);
-  useScrambleText(line2Ref, { delay: 0.4 });
 
   useEffect(() => {
     const id = setInterval(() => setActive((a) => (a + 1) % slides.length), 3000);
@@ -46,9 +41,9 @@ export default function CoreEssentials() {
             Core Essentials
           </p>
           <h2 className="mt-4 font-display font-semibold uppercase leading-tight tracking-tight text-base md:text-[2.125rem]">
-            <span ref={line1Ref}>THE GEAR EVERY FIGHTER STARTS WITH</span>
+            <span>THE GEAR EVERY FIGHTER STARTS WITH</span>
             <br className="hidden md:block" />
-            <span ref={line2Ref}> REFINED FOR PERFORMANCE.</span>
+            <span> REFINED FOR PERFORMANCE.</span>
           </h2>
         </div>
 

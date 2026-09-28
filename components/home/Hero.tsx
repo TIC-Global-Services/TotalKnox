@@ -4,21 +4,14 @@ import { useRef } from "react";
 import Image from "next/image";
 import Header from "@/components/shared/Header";
 import { useReveal } from "@/hooks/useReveal";
-import { useScrambleText } from "@/hooks/useScrambleText";
 import { useWordReveal } from "@/hooks/useWordReveal";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const builtRef = useRef<HTMLSpanElement>(null);
-  const impactRef = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
   useWordReveal(descRef);
-
-  useScrambleText(builtRef, { delay: 0.2 });
-  useScrambleText(impactRef, { delay: 0.6 });
 
   return (
     <section
@@ -38,15 +31,9 @@ export default function Hero() {
         <Header tone="light" />
 
         <div className="w-full px-6 md:px-10 relative z-10 flex h-full flex-col justify-end pb-14 md:pb-20">
-        <h1
-          ref={titleRef}
-          className="font-display uppercase font-bold leading-tight tracking-tight text-4xl md:text-[5rem] lg:text-[6.25rem]"
-        >
-          <span ref={builtRef}>BUILT FOR</span>{" "}
-          <span
-            ref={impactRef}
-            className="text-transparent [-webkit-text-stroke:1.5px_white] md:[-webkit-text-stroke-width:2px]"
-          >
+        <h1 className="font-display uppercase font-bold leading-tight tracking-tight text-4xl md:text-[5rem] lg:text-[6.25rem]">
+          <span>BUILT FOR</span>{" "}
+          <span className="text-transparent [-webkit-text-stroke:1.5px_white] md:[-webkit-text-stroke-width:2px]">
             IMPACT.
           </span>
         </h1>
