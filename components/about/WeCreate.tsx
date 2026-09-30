@@ -46,7 +46,7 @@ export default function WeCreate() {
   useWordReveal(descRef);
 
   return (
-    <section className="bg-white py-20 md:py-32 overflow-hidden">
+    <section className="bg-white py-10 md:py-32 overflow-hidden">
       <div ref={containerRef} className="w-full px-6 md:px-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-3">
@@ -61,7 +61,7 @@ export default function WeCreate() {
           <div className="md:col-span-9">
             <p
               ref={descRef}
-              className="text-2xl md:text-[2.5rem] uppercase leading-[1] tracking-tight mt-10"
+              className="text-2xl md:text-[2.5rem] uppercase md:leading-[1] tracking-tight md:mt-10"
             >
               From concept to strike, from blueprint to battlefield-ready gear,
               this is what we stand for: the pursuit of uncompromising quality
@@ -70,10 +70,10 @@ export default function WeCreate() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-row items-center justify-center gap-4 md:gap-10">
+        <div className="md:mt-16 flex flex-row items-center justify-center gap-4 md:gap-10 mt-6">
           <div
             ref={leftCardRef}
-            className="overflow-hidden rounded-xl bg-black w-[165px] h-[220px] md:w-[320px] md:h-[500px] shrink-0 mt-10"
+            className="overflow-hidden rounded-xl bg-black w-[165px] h-[220px] md:w-[320px] md:h-[500px] shrink-0 md:mt-10"
           >
             <Image
               src="/shared/we_create2.webp"

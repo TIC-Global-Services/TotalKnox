@@ -42,12 +42,19 @@ const groups: Group[] = [
   },
 ];
 
-function Row({ item }: { item: Q }) {
-  const [open, setOpen] = useState(false);
+function Row({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: Q;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
     <div className="border-b border-black">
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={onToggle}
         className="flex w-full items-center justify-between gap-6 py-5 text-left transition hover:text-black"
       >
         <span className="text-base md:text-xl uppercase tracking-tight text-black">
@@ -56,7 +63,7 @@ function Row({ item }: { item: Q }) {
         <svg
           viewBox="0 0 24 24"
           className={`h-4 w-4 shrink-0 transition-transform duration-500 ease-out ${
-            open ? "rotate-180" : ""
+            isOpen ? "rotate-180" : ""
           }`}
           fill="none"
           stroke="currentColor"
@@ -67,13 +74,13 @@ function Row({ item }: { item: Q }) {
       </button>
       <div
         className={`grid transition-[grid-template-rows] duration-500 ease-out ${
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
         <div className="overflow-hidden">
           <p
             className={`pb-5 pr-10 text-sm leading-relaxed text-black/70 transition-all duration-500 ease-out ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+              isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
             }`}
           >
             {item.a}
@@ -85,6 +92,12 @@ function Row({ item }: { item: Q }) {
 }
 
 export default function Faq() {
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
+  const toggleQuestion = (question: string) => {
+    setOpenQuestion((prev) => (prev === question ? null : question));
+  };
+
   return (
     <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
       <div className="md:col-span-5">
@@ -109,7 +122,12 @@ export default function Faq() {
             </h3>
             <div>
               {g.items.map((it) => (
-                <Row key={it.q} item={it} />
+                <Row
+                  key={it.q}
+                  item={it}
+                  isOpen={openQuestion === it.q}
+                  onToggle={() => toggleQuestion(it.q)}
+                />
               ))}
             </div>
           </div>

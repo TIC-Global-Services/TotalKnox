@@ -87,6 +87,7 @@ export default function FromTheFightFloor() {
           sizes="100vw"
           className="object-cover"
         />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="w-full px-6 md:px-10 relative ">
@@ -108,8 +109,8 @@ export default function FromTheFightFloor() {
         data-reveal-card
         className="w-full px-6 md:px-10 mt-20 md:mt-28 text-center relative"
       >
-        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-5xl">
-          <span ref={sharpRef} className="inline-block text-white">STAY SHARP.</span>{" "}
+        <h2 className="font-display font-semibold uppercase leading-tight tracking-tight text-2xl md:text-5xl flex">
+          <span ref={sharpRef} className="inline-block text-white">STAY SHARP.</span>
           <span ref={readyRef} className="inline-block text-crimson">STAY READY.</span>
         </h2>
         <p

@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "/", preview: "/shared/preview/hero-preview.webp" },
@@ -167,19 +168,22 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
           <span className="hidden sm:inline">Menu</span>
         </button>
 
-        <a href="#" className="flex items-center gap-2 select-none">
+        {/* Logo: adjust size via mobile (w-* / h-*) and desktop (md:w-* / md:h-*) */}
+        <Link
+          href="/"
+          className="relative select-none w-40 h-40 sm:w-40 sm:h-40 md:w-48 md:h-50 flex items-center justify-center"
+        >
           <Image
             src="/shared/nav_logo.webp"
             alt="TotalKnox"
-            width={300}
-            height={100}
+            fill
             priority
-            className={tone === "light" ? "brightness-0 invert" : ""}
+            className={`object-contain ${tone === "light" ? "brightness-0 invert" : ""}`}
           />
-        </a>
+        </Link>
 
         <div className="flex items-center gap-5 md:gap-6">
-          <button aria-label="Account" className="hover:opacity-80">
+          {/* <button aria-label="Account" className="hover:opacity-80">
             <Icon d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
           </button>
           <button aria-label="Notifications" className="hover:opacity-80 relative">
@@ -191,7 +195,9 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
           </button>
           <button aria-label="Cart" className="hover:opacity-80">
             <Icon d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
-          </button>
+          </button> */}
+          <Link href="/contact"><button className="text-sm bg-white text-black py-2 px-6 rounded-sm font-medium hidden md:block">Contact</button></Link>
+          <Link href="https://total-knox-06uhrqmx.myshopify.com"><button className="text-sm bg-white text-black py-2 px-6 rounded-sm font-medium hidden md:block">Shop now</button></Link>
         </div>
       </div>
 
