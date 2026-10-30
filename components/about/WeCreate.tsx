@@ -76,7 +76,7 @@ export default function WeCreate() {
             className="overflow-hidden rounded-xl bg-black w-[165px] h-[220px] md:w-[320px] md:h-[500px] shrink-0 md:mt-10"
           >
             <Image
-              src="/shared/we_create2.webp"
+              src="/about/we-create-1.jpeg"
               alt="Hand wrap detail"
               width={320}
               height={500}
@@ -89,7 +89,7 @@ export default function WeCreate() {
             className="overflow-hidden rounded-xl bg-black w-[165px] h-[220px] md:w-[320px] md:h-[500px] shrink-0"
           >
             <Image
-              src="/about/we-create.webp"
+              src="/about/we-create-2.jpeg"
               alt="Fighter in headgear"
               width={320}
               height={500}

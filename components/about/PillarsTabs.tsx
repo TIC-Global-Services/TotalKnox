@@ -63,7 +63,7 @@ export default function PillarsTabs() {
       className="relative w-full min-h-screen overflow-hidden bg-black text-white"
     >
       <Image
-        src="/about/protection.webp"
+        src="/about/protection.jpeg"
         alt=""
         fill
         sizes="100vw"

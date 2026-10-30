@@ -50,7 +50,7 @@ export default function OurVision() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-black md:aspect-auto md:min-h-[760px]">
           <Image
-            src="/shared/style_and_functionality2.webp"
+            src="/about/our-vision.jpeg"
             alt="Female boxer training with punching bags"
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
