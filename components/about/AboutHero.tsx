@@ -20,7 +20,7 @@ export default function AboutHero() {
         loop
         muted
         playsInline
-        poster="/about/about-hero.webp"
+        // poster="/about/about-hero.webp"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/banner_video.mp4" type="video/mp4" />
