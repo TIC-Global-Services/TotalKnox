@@ -81,7 +81,7 @@ export default function PillarsTabs() {
                   className={`relative pb-2 uppercase transition ${
                     i === active
                       ? "text-white after:absolute after:-bottom-px after:left-0 after:right-0 cursor-pointer after:h-px after:bg-white"
-                      : "text-white/60 hover:text-white/90 cursor-pointer"
+                      : "text-white/60 hover:text-white/90 cursor-pointer "
                   }`}
                 >
                   {it.label}

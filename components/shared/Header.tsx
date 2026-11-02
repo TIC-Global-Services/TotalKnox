@@ -139,6 +139,19 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
     }
   }, [activePreview]);
 
+  useEffect(() => {
+    if (open) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+      };
+    }
+  }, [open]);
+
   const handleNavMouseMove = (e: React.MouseEvent) => {
     if (xTo.current && yTo.current) {
       xTo.current(e.clientX + 40);
@@ -203,7 +216,7 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
 
       <div
         ref={menuRef}
-        className="fixed inset-0 z-50 bg-black/95 text-white"
+        className="fixed inset-0 z-50 bg-black/95 text-white overflow-y-auto"
         style={{ clipPath: "inset(0 0 100% 0)", pointerEvents: "none" }}
       >
         <div className="w-full px-6 md:px-10 flex h-20 items-center justify-between md:h-24">
@@ -243,7 +256,7 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
 
       <div
         ref={previewRef}
-        className="pointer-events-none fixed left-0 top-0 z-[60] h-[180px] w-[300px] overflow-hidden rounded-2xl opacity-0"
+        className="pointer-events-none hidden md:block fixed left-0 top-0 z-[60] h-[180px] w-[300px] overflow-hidden rounded-2xl opacity-0"
         style={{ willChange: "transform" }}
       >
         {navLinks.map((l) => (
