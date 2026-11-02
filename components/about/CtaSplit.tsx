@@ -71,7 +71,7 @@ export default function CtaSplit() {
           alt="Fighter throwing a punch"
         />
       </a>
-      <a href="#" className="block">
+      <a href="/contact" className="block">
         <Panel
           eyebrow="We'd Love to Hear It From You"
           heading="Contact"
