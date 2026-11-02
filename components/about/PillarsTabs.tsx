@@ -73,15 +73,15 @@ export default function PillarsTabs() {
 
       <div className="w-full px-6 md:px-10 relative flex min-h-screen flex-col">
         <div className="pt-10 md:pt-14">
-          <ul className="flex items-center gap-6 text-base md:text-xl md:gap-10">
+          <ul className="flex items-center gap-6 text-base md:text-xl md:gap-10 ">
             {pillars.map((it, i) => (
-              <li key={it.key} data-reveal-tabs className="flex items-center gap-6 md:gap-10">
+              <li key={it.key} data-reveal-tabs className="flex items-center gap-6 cursor-pointer md:gap-10">
                 <button
                   onClick={() => setActive(i)}
                   className={`relative pb-2 uppercase transition ${
                     i === active
-                      ? "text-white after:absolute after:-bottom-px after:left-0 after:right-0 after:h-px after:bg-white"
-                      : "text-white/60 hover:text-white/90"
+                      ? "text-white after:absolute after:-bottom-px after:left-0 after:right-0 cursor-pointer after:h-px after:bg-white"
+                      : "text-white/60 hover:text-white/90 cursor-pointer"
                   }`}
                 >
                   {it.label}

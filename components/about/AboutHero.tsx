@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import Header from "@/components/shared/Header";
 import { useFadeIn } from "@/hooks/useFadeIn";
 
@@ -16,14 +15,16 @@ export default function AboutHero() {
 
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden text-white">
-      <Image
-        src="/about/about-hero.webp"
-        alt="Fighter in action"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[30%_50%]"
-      />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/about/about-hero.webp"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/banner_video.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
 
       <Header tone="light" />
