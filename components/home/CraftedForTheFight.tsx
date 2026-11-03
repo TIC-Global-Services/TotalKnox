@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import { useWordReveal } from "@/hooks/useWordReveal";
 
 export default function CraftedForTheFight() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,9 +12,9 @@ export default function CraftedForTheFight() {
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]", stagger: 0.12 });
-  useWordReveal(descRef);
   useFadeIn(craftedRef, { delay: 0.1 });
   useFadeIn(fightRef, { delay: 0.25 });
+  useFadeIn(descRef, { delay: 0.4, blur: 8, y: 16 });
 
   return (
     <section

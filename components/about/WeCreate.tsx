@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useReveal } from "@/hooks/useReveal";
-import { useWordReveal } from "@/hooks/useWordReveal";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +43,7 @@ export default function WeCreate() {
   }, { scope: containerRef });
 
   useReveal(containerRef, { selector: "[data-reveal]", stagger: 0.15 });
-  useWordReveal(descRef);
+  useFadeIn(descRef, { delay: 0.25, blur: 8, y: 16 });
 
   return (
     <section className="bg-white py-10 md:py-32 overflow-hidden">

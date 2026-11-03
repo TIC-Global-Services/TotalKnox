@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
-import { useWordReveal } from "@/hooks/useWordReveal";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +17,7 @@ export default function OurVision() {
   const andBgRef = useRef<HTMLSpanElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
-  useWordReveal(descRef);
+  useFadeIn(descRef, { delay: 0.35, blur: 8, y: 16 });
 
   useGSAP(
     () => {

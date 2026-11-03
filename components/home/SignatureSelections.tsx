@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useParallax } from "@/hooks/useParallax";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import { useWordReveal } from "@/hooks/useWordReveal";
 
 const items = [
   {
@@ -71,9 +70,9 @@ export default function SignatureSelections() {
   const subRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.15 });
-  useWordReveal(subRef);
   useFadeIn(sigRef, { delay: 0.1 });
   useFadeIn(selRef, { delay: 0.25 });
+  useFadeIn(subRef, { delay: 0.4, blur: 8, y: 16 });
 
   return (
     <section

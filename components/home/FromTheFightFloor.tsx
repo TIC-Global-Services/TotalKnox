@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import { useWordReveal } from "@/hooks/useWordReveal";
 
 const articles = [
   {
@@ -68,11 +67,11 @@ export default function FromTheFightFloor() {
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal-card]", stagger: 0.1 });
-  useWordReveal(descRef);
   useFadeIn(fromRef, { delay: 0.1 });
   useFadeIn(floorRef, { delay: 0.25 });
   useFadeIn(sharpRef, { delay: 0.1 });
   useFadeIn(readyRef, { delay: 0.25 });
+  useFadeIn(descRef, { delay: 0.4, blur: 8, y: 16 });
 
   return (
     <section

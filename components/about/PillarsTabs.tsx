@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import { useWordReveal } from "@/hooks/useWordReveal";
 
 type Pillar = {
   key: string;
@@ -36,7 +35,7 @@ const pillars: Pillar[] = [
 
 function PillarBody({ text }: { text: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
-  useWordReveal(ref);
+  useFadeIn(ref, { delay: 0.15, blur: 8, y: 16 });
   return (
     <p
       ref={ref}
