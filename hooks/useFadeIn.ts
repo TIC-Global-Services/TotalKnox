@@ -14,6 +14,7 @@ type FadeInOptions = {
   trigger?: RefObject<HTMLElement | null>;
   once?: boolean;
   dependencies?: unknown[];
+  blur?: number;
 };
 
 export function useFadeIn(
@@ -30,6 +31,7 @@ export function useFadeIn(
     trigger,
     once = false,
     dependencies = [],
+    blur,
   } = options;
 
   useGSAP(
@@ -46,10 +48,15 @@ export function useFadeIn(
 
       gsap.fromTo(
         targets,
-        { opacity: 0, y },
+        {
+          opacity: 0,
+          y,
+          ...(blur ? { filter: `blur(${blur}px)` } : {}),
+        },
         {
           opacity: 1,
           y: 0,
+          ...(blur ? { filter: "blur(0px)" } : {}),
           duration,
           delay,
           stagger: selector ? stagger : 0,

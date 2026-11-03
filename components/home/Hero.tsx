@@ -5,7 +5,6 @@ import Image from "next/image";
 import Header from "@/components/shared/Header";
 import { useReveal } from "@/hooks/useReveal";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import { useWordReveal } from "@/hooks/useWordReveal";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,9 +13,9 @@ export default function Hero() {
   const descRef = useRef<HTMLParagraphElement>(null);
 
   useReveal(sectionRef, { selector: "[data-reveal]" });
-  useWordReveal(descRef);
   useFadeIn(builtRef, { delay: 0.15 });
   useFadeIn(impactRef, { delay: 0.35 });
+  useFadeIn(descRef, { delay: 0.55, blur: 8, y: 16 });
 
   return (
     <section

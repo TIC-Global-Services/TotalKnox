@@ -161,7 +161,7 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
 
   return (
     <header className={`absolute inset-x-0 top-0 z-30 ${text}`}>
-      <div className="w-full px-6 md:px-10 flex h-20 items-center justify-between md:h-24">
+      <div className="w-full px-6 md:px-10 flex h-22 items-center justify-between md:h-24">
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] cursor-pointer"
@@ -184,7 +184,7 @@ export default function Header({ tone = "light" }: { tone?: "light" | "dark" }) 
         {/* Logo: adjust size via mobile (w-* / h-*) and desktop (md:w-* / md:h-*) */}
         <Link
           href="/"
-          className="relative select-none w-40 h-40 sm:w-40 sm:h-40 md:w-48 md:h-50 flex items-center justify-center"
+          className="relative select-none w-42 h-42 sm:w-40 sm:h-40 md:w-48 md:h-50 flex items-center justify-center"
         >
           <Image
             src="/shared/nav_logo.webp"

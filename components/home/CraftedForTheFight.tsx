@@ -52,7 +52,7 @@ export default function CraftedForTheFight() {
             uncompromising excellence.
           </p>
           <a
-            href="#"
+            href="/about"
             className="inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-xs md:text-base font-semibold uppercase tracking-[1] transition bg-black text-white hover:scale-105 mt-8"
           >
             Our Philosophy
